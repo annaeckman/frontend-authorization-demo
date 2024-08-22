@@ -23,5 +23,17 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8"
-  }
+  },
+  "description": "A React app built with Vite. Used by the TripleTen Software Engineering Bootcamp to demonstrate the frontend authorization and authentication.",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/annaeckman/frontend-authorization-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annaeckman/frontend-authorization-demo/issues"
+  },
+  "homepage": "https://github.com/annaeckman/frontend-authorization-demo#readme"
 }
