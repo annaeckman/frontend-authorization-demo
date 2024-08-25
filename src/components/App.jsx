@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 
 import Ducks from "./Ducks";
 import Login from "./Login";
@@ -14,6 +20,9 @@ import "./styles/App.css";
 function App() {
   const [userData, setUserData] = useState({ username: "", email: "" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const location = useLocation();
 
   useEffect(() => {
     const jwt = getToken();
@@ -31,8 +40,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-  const navigate = useNavigate();
 
   const handleRegistration = ({
     username,
@@ -62,7 +69,9 @@ function App() {
           setToken(data.jwt);
           setUserData(data.user);
           setIsLoggedIn(true);
-          navigate("/ducks");
+
+          const redirectPath = location.state?.from?.pathname || "/ducks";
+          navigate(redirectPath);
         }
       })
       .catch(console.error);
